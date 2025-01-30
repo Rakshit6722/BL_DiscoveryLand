@@ -144,7 +144,9 @@ body {
 }
 
 .disc-gall-gallery-categories-container1{
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
