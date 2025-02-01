@@ -4,6 +4,7 @@
     box-sizing: border-box;
 }
 
+
 html,
 body {
     /* height: 100%; */
@@ -78,7 +79,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 3rem;
+    gap: 1rem;
     color: #fff;
     transition: color 0.3s ease-in-out;
 }
@@ -99,6 +100,17 @@ body {
     height: 2px;
     background-color: white;
     transition: width 0.3s ease-in-out;
+}
+
+.disc-gall-header-nav-menu-option{
+    border: 1px solid white;
+    margin-left: 3rem;
+}
+
+.disc-gall-header-nav-menu-option p{
+   font-size: 2rem;
+    color: white;
+    padding: 0rem .75rem;
 }
 
 .disc-gall-header-nav-links div:hover span {

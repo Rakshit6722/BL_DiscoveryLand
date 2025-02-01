@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
     const categoryContainer = document.querySelector('.disc-gall-categories-container');
     const footer = document.querySelector('footer');
     const galleryContainer = document.querySelector('.gallery-container');
+    const headerMenuIcon = document.querySelector('.disc-gall-header-nav-menu-option p');
+    const headerMenuIconBorder = document.querySelector('.disc-gall-header-nav-menu-option');
     
     let lastScrollPosition = window.scrollY;
     let ticking = false;
@@ -79,6 +81,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     
                     // Header color change
                     if (currentScroll > 50) {
+                        headerMenuIcon.style.color = '#000000';
+                        headerMenuIconBorder.style.borderColor = '#000000'; 
                         header.style.backgroundColor = '#ffffff';
                         header.style.transition = 'background-color 0.8s ease-in-out';
                         headerLinks.style.color = '#000000';
@@ -87,6 +91,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         headerDarkLogo.style.display = 'block';
                         animationUnderlines.forEach(span => span.style.backgroundColor = '#000000');
                     } else {
+                        headerMenuIcon.style.color = '#ffffff';
+                        headerMenuIconBorder.style.borderColor = '#ffffff'; 
                         header.style.backgroundColor = 'transparent';
                         headerLinks.style.color = '#ffffff';
                         headerDarkLogo.style.display = 'none';
@@ -119,12 +125,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 
                 ticking = true;
             }
-        } else {
-            // On smaller screens (less than 768px), reset the positioning
-            mainHeader.style.position = 'relative';
-            footer.style.position = 'relative';
-            categoryContainer.style.position = 'relative';
-            categoryContainer.style.transform = 'translateY(0)';
         }
     });
 });
