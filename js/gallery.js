@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Header elements
     const mainHeader = document.querySelector('.disc-gall-header');
     const header = document.querySelector('.disc-gall-header-nav');
     const headerLinks = document.querySelector('.disc-gall-header-nav-links');
@@ -13,6 +14,9 @@ document.addEventListener('DOMContentLoaded', function() {
     
     let lastScrollPosition = window.scrollY;
     let ticking = false;
+
+    // Function to check if device is mobile
+    const isMobile = () => window.innerWidth < 768;
     
     // Set up initial styles
     mainHeader.style.position = 'fixed';
@@ -21,18 +25,19 @@ document.addEventListener('DOMContentLoaded', function() {
     mainHeader.style.transition = 'transform 0.8s ease-in-out';
     mainHeader.style.zIndex = '3';
     
-    // Set up footer styles
-    footer.style.position = 'fixed';
-    footer.style.bottom = '0';
-    footer.style.left = '0';
-    footer.style.width = '100%';
-    footer.style.zIndex = '1';
-    
-    // Set up category container styles
-    categoryContainer.style.position = 'relative';
-    categoryContainer.style.zIndex = '2';
-    categoryContainer.style.backgroundColor = '#fff';
-    categoryContainer.style.transition = 'transform 0.3s ease-out';
+    // Set up footer and category container styles conditionally
+    if (!isMobile()) {
+        footer.style.position = 'fixed';
+        footer.style.bottom = '0';
+        footer.style.left = '0';
+        footer.style.width = '100%';
+        footer.style.zIndex = '1';
+        
+        categoryContainer.style.position = 'relative';
+        categoryContainer.style.zIndex = '2';
+        categoryContainer.style.backgroundColor = '#fff';
+        categoryContainer.style.transition = 'transform 0.3s ease-out';
+    }
     
     // Calculate heights
     const footerHeight = footer.offsetHeight;
@@ -48,28 +53,66 @@ document.addEventListener('DOMContentLoaded', function() {
     wrapper.appendChild(galleryContainer);
     wrapper.appendChild(categoryContainer);
     
-    // Add padding to account for footer
-    document.body.style.paddingBottom = `${footerHeight}px`;
+    // Add padding to account for footer only on desktop
+    if (!isMobile()) {
+        document.body.style.paddingBottom = `${footerHeight}px`;
+    }
 
-    // Prevent scrolling past certain point with wheel event
+    // Prevent scrolling past certain point with wheel event (desktop only)
     window.addEventListener('wheel', function(e) {
-        const currentScroll = window.scrollY;
-        const windowHeight = window.innerHeight;
-        const documentHeight = document.documentElement.scrollHeight;
-        const maxScroll = documentHeight - windowHeight - footerHeight;
+        if (!isMobile()) {
+            const currentScroll = window.scrollY;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            const maxScroll = documentHeight - windowHeight - footerHeight;
 
-        if (currentScroll >= maxScroll && e.deltaY > 0) {
-            e.preventDefault();
-            window.scrollTo(0, maxScroll);
+            if (currentScroll >= maxScroll && e.deltaY > 0) {
+                e.preventDefault();
+                window.scrollTo(0, maxScroll);
+            }
         }
     }, { passive: false });
     
     window.addEventListener('scroll', function() {
-        // Check if the screen size is large enough (e.g., 768px or more)
-        if (window.matchMedia("(min-width: 768px)").matches) {
-            if (!ticking) {
-                window.requestAnimationFrame(function() {
-                    const currentScroll = window.scrollY;
+        if (!ticking) {
+            window.requestAnimationFrame(function() {
+                const currentScroll = window.scrollY;
+                
+                // Header animations - work on all screen sizes
+                // Header color change
+                if (currentScroll > 50) {
+                    headerMenuIcon.style.color = '#000000';
+                    headerMenuIconBorder.style.borderColor = '#000000'; 
+                    header.style.backgroundColor = '#ffffff';
+                    header.style.transition = 'background-color 0.8s ease-in-out';
+                    headerLinks.style.color = '#000000';
+                    headerLinks.style.transition = 'color 0.8s ease-in-out';
+                    headerLightLogo.style.display = 'none';
+                    headerDarkLogo.style.display = 'block';
+                    animationUnderlines.forEach(span => span.style.backgroundColor = '#000000');
+                } else {
+                    headerMenuIcon.style.color = '#ffffff';
+                    headerMenuIconBorder.style.borderColor = '#ffffff'; 
+                    header.style.backgroundColor = 'transparent';
+                    headerLinks.style.color = '#ffffff';
+                    headerDarkLogo.style.display = 'none';
+                    headerLightLogo.style.display = 'block';
+                    animationUnderlines.forEach(span => span.style.backgroundColor = '#ffffff');
+                }
+                
+                // Header hide/show
+                if (currentScroll > 180) {
+                    if (currentScroll > lastScrollPosition) {
+                        mainHeader.style.transform = 'translateY(-100%)';
+                    } else {
+                        mainHeader.style.transform = 'translateY(0)';
+                    }
+                } else {
+                    mainHeader.style.transform = 'translateY(0)';
+                }
+
+                // Footer animations - desktop only
+                if (!isMobile()) {
                     const windowHeight = window.innerHeight;
                     const documentHeight = document.documentElement.scrollHeight;
                     const maxScroll = documentHeight - windowHeight - footerHeight;
@@ -79,38 +122,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         window.scrollTo(0, maxScroll);
                     }
                     
-                    // Header color change
-                    if (currentScroll > 50) {
-                        headerMenuIcon.style.color = '#000000';
-                        headerMenuIconBorder.style.borderColor = '#000000'; 
-                        header.style.backgroundColor = '#ffffff';
-                        header.style.transition = 'background-color 0.8s ease-in-out';
-                        headerLinks.style.color = '#000000';
-                        headerLinks.style.transition = 'color 0.8s ease-in-out';
-                        headerLightLogo.style.display = 'none';
-                        headerDarkLogo.style.display = 'block';
-                        animationUnderlines.forEach(span => span.style.backgroundColor = '#000000');
-                    } else {
-                        headerMenuIcon.style.color = '#ffffff';
-                        headerMenuIconBorder.style.borderColor = '#ffffff'; 
-                        header.style.backgroundColor = 'transparent';
-                        headerLinks.style.color = '#ffffff';
-                        headerDarkLogo.style.display = 'none';
-                        headerLightLogo.style.display = 'block';
-                        animationUnderlines.forEach(span => span.style.backgroundColor = '#ffffff');
-                    }
-                    
-                    // Header hide/show
-                    if (currentScroll > 180) {
-                        if (currentScroll > lastScrollPosition) {
-                            mainHeader.style.transform = 'translateY(-100%)';
-                        } else {
-                            mainHeader.style.transform = 'translateY(0)';
-                        }
-                    } else {
-                        mainHeader.style.transform = 'translateY(0)';
-                    }
-                    
                     // Move category container when approaching footer
                     if (currentScroll > maxScroll - footerHeight) {
                         const translateY = currentScroll - (maxScroll - footerHeight);
@@ -118,13 +129,35 @@ document.addEventListener('DOMContentLoaded', function() {
                     } else {
                         categoryContainer.style.transform = 'translateY(0)';
                     }
-                    
-                    lastScrollPosition = currentScroll;
-                    ticking = false;
-                });
+                }
                 
-                ticking = true;
-            }
+                lastScrollPosition = currentScroll;
+                ticking = false;
+            });
+            
+            ticking = true;
+        }
+    });
+
+    // Handle resize events to update mobile status
+    window.addEventListener('resize', function() {
+        if (isMobile()) {
+            footer.style.position = 'static';
+            categoryContainer.style.position = 'static';
+            categoryContainer.style.transform = 'none';
+            document.body.style.paddingBottom = '0';
+        } else {
+            footer.style.position = 'fixed';
+            footer.style.bottom = '0';
+            footer.style.left = '0';
+            footer.style.width = '100%';
+            footer.style.zIndex = '1';
+            
+            categoryContainer.style.position = 'relative';
+            categoryContainer.style.zIndex = '2';
+            categoryContainer.style.backgroundColor = '#fff';
+            categoryContainer.style.transition = 'transform 0.3s ease-out';
+            document.body.style.paddingBottom = `${footerHeight}px`;
         }
     });
 });

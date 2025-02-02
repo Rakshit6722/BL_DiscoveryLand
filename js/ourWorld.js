@@ -170,7 +170,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Gallery population
     const galleryContainer = document.querySelector('.disc-world-main-container');
     galleryContent.forEach((content) => {
-        const galleryCard = document.createElement('div')
+        const galleryCard = document.createElement('div');
         galleryCard.classList.add('disc-world-photo-collage');
         galleryCard.innerHTML = `
             <img src=${content.img}>
@@ -178,9 +178,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 <h4>${content.title}</h4>
                 <p>${content.location}</p>
             </div>
-        `
+        `;
         galleryContainer.appendChild(galleryCard);
-    })
+    });
 
     // Header elements
     const mainHeader = document.querySelector('.disc-world-header');
@@ -203,19 +203,28 @@ document.addEventListener("DOMContentLoaded", () => {
     mainHeader.style.transition = 'transform 0.8s ease-in-out';
     mainHeader.style.zIndex = '3';
 
-    // Set up footer styles
-    footer.style.position = 'fixed';
-    footer.style.bottom = '0';
-    footer.style.left = '0';
-    footer.style.width = '100%';
-    footer.style.zIndex = '1';
+    // Function to check if device is mobile
+    const isMobile = () => window.innerWidth < 768;
+
+    // Set up footer styles conditionally
+    if (!isMobile()) {
+        footer.style.position = 'fixed';
+        footer.style.bottom = '0';
+        footer.style.left = '0';
+        footer.style.width = '100%';
+        footer.style.zIndex = '1';
+    }
     
     // Create a wrapper for the main content
     const wrapper = document.createElement('div');
     wrapper.style.position = 'relative';
     wrapper.style.zIndex = '2';
     wrapper.style.backgroundColor = 'rgb(16, 16, 16)';
-    wrapper.style.transition = 'transform 0.8s ease-in-out';
+    
+    // Only add transition if not mobile
+    if (!isMobile()) {
+        wrapper.style.transition = 'transform 0.8s ease-in-out';
+    }
     
     // Move main content into wrapper
     main.parentNode.insertBefore(wrapper, main);
@@ -223,25 +232,9 @@ document.addEventListener("DOMContentLoaded", () => {
     
     // Calculate heights
     const footerHeight = footer.offsetHeight;
-    
-    // Add padding to account for footer
-    // document.body.style.paddingBottom = `${footerHeight}px`;
 
     let lastScrollPosition = window.scrollY;
     let ticking = false;
-
-    // Prevent scrolling past certain point
-    // window.addEventListener('wheel', function(e) {
-    //     const currentScroll = window.scrollY;
-    //     const windowHeight = window.innerHeight;
-    //     const documentHeight = document.documentElement.scrollHeight;
-    //     const maxScroll = documentHeight - windowHeight - footerHeight;
-
-    //     if (currentScroll >= maxScroll && e.deltaY > 0) {
-    //         e.preventDefault();
-    //         window.scrollTo(0, maxScroll);
-    //     }
-    // }, { passive: false });
 
     window.addEventListener('scroll', function() {
         if (!ticking) {
@@ -250,11 +243,6 @@ document.addEventListener("DOMContentLoaded", () => {
                 const windowHeight = window.innerHeight;
                 const documentHeight = document.documentElement.scrollHeight;
                 const maxScroll = documentHeight - windowHeight - footerHeight;
-
-                // Force scroll position to maxScroll if exceeded
-                // if (currentScroll > maxScroll) {
-                //     window.scrollTo(0, maxScroll);
-                // }
 
                 // Header color change
                 if (currentScroll > 50) {
@@ -288,8 +276,8 @@ document.addEventListener("DOMContentLoaded", () => {
                     mainHeader.style.transform = 'translateY(0)';
                 }
 
-                // Move main content when approaching footer
-                if (currentScroll > maxScroll - footerHeight) {
+                // Move main content when approaching footer - only if not mobile
+                if (!isMobile() && currentScroll > maxScroll - footerHeight) {
                     const translateY = currentScroll - (maxScroll - footerHeight);
                     wrapper.style.transform = `translateY(-${translateY}px)`;
                 } else {
@@ -300,6 +288,22 @@ document.addEventListener("DOMContentLoaded", () => {
                 ticking = false;
             });
             ticking = true;
+        }
+    });
+
+    // Handle resize events to update mobile status
+    window.addEventListener('resize', function() {
+        if (isMobile()) {
+            footer.style.position = 'static';
+            wrapper.style.transition = 'none';
+            wrapper.style.transform = 'translateY(0)';
+        } else {
+            footer.style.position = 'fixed';
+            footer.style.bottom = '0';
+            footer.style.left = '0';
+            footer.style.width = '100%';
+            footer.style.zIndex = '1';
+            wrapper.style.transition = 'transform 0.8s ease-in-out';
         }
     });
 });
