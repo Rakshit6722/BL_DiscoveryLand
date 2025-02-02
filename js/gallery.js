@@ -1,4 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
+
+
+    const galleryText = document.querySelector('.disc-gall-main-gallery-text p')
+    setTimeout(() => {
+        galleryText.classList.add('animate');
+    },1000 )
+
     // Header elements
     const mainHeader = document.querySelector('.disc-gall-header');
     const header = document.querySelector('.disc-gall-header-nav');
