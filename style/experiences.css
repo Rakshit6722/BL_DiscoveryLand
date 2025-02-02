@@ -118,18 +118,23 @@ main {
     transition: width 0.3s ease-in-out;
 }
 
-.disc-exp-header-nav-menu-option {
-    border: 1px solid white
+.disc-gall-header-nav-menu-option{
+    border: 1px solid white;
+    margin-left: 3rem;
 }
 
-.disc-exp-header-nav-menu-option p {
-    font-size: 2rem;
+.disc-gall-header-nav-menu-option p{
+   font-size: 2rem;
     color: white;
     padding: 0rem .75rem;
 }
-
 .disc-exp-header-nav-links div:hover span {
     width: 100%;
+}
+
+.disc-exp-header-nav-links > a{
+    color: white;
+    text-decoration: none;
 }
 
 .disc-exp-main-container-video-container {
@@ -164,9 +169,8 @@ main {
 .disc-exp-main-text-container{
     text-align: center;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 38%;
+    left: 33%;
 }
 
 .disc-exp-main-container{
@@ -691,6 +695,10 @@ footer{
         z-index: -1;
         background-color: black;
     }
+    .disc-exp-main-text-container{
+        top: 38%;
+        left: 11%;
+    }
 
     .disc-exp-main-text-container p{
         font-size: 3.5rem !important;
@@ -755,3 +763,24 @@ footer{
         padding: 1rem;
     }
 }
+/* 
+.page-transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background-color: black;
+    z-index: 9999;
+    transition: height 0.8s cubic-bezier(0.77, 0, 0.175, 1);
+}
+
+.page-transition-overlay.active {
+    height: 100%;
+}
+
+.page-transition-overlay.reveal {
+    height: 100%;
+    transition: transform 1s cubic-bezier(0.77, 0, 0.175, 1);
+    transform: translateY(100%);
+} */

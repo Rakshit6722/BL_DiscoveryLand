@@ -1,12 +1,28 @@
 document.addEventListener('DOMContentLoaded', function () {
     const mainHeader = document.querySelector('.disc-exp-header');
     const header = document.querySelector('.disc-exp-header-nav');
-    const headerLinks = document.querySelector('.disc-exp-header-nav-links');
+    const headerLinks = document.querySelectorAll('.disc-exp-header-nav-links a');
     const headerDarkLogo = document.querySelector('.disc-exp-header-nav-dark-logo');
     const headerLightLogo = document.querySelector('.disc-exp-header-nav-white-logo');
     const animationUnderlines = document.querySelectorAll('.disc-exp-header-nav-span');
     const headerMenuIconBorder = document.querySelector('.disc-gall-header-nav-menu-option');
     const headerMenuIcon = document.querySelector('.disc-gall-header-nav-menu-option p');
+
+    const bannerText = document.querySelectorAll(".disc-exp-main-text-container")
+    console.log(bannerText)
+
+    bannerText.forEach(text => {
+        text.style.transform = 'translateY(30px)';
+        text.style.opacity = '0';
+    })
+
+    bannerText.forEach((text, idx) => {
+        setTimeout(() => {
+            text.style.transform = 'translateY(0)';
+            text.style.opacity = '1';
+            text.style.transition = 'transform 0.8s ease-in-out, opacity 0.8s ease-in-out';
+        }, idx * 5000);
+    })
 
     const footer = document.querySelector('footer');
     const main = document.querySelector('main');
@@ -18,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     const overlappingCard1Title = document.querySelector('.disc-exp-overlappingcard1 > div > h2')
     const overlappingCard1Desc = document.querySelectorAll('.disc-exp-overlappingcard1 div:nth-child(2) div')
-    
+
     const overlappingCard2Title = document.querySelector('.disc-exp-overlappingcard2 > div > h2')
     const overlappingCard2Desc = document.querySelectorAll('.disc-exp-overlappingcard2 div:nth-child(2) div')
 
@@ -108,8 +124,8 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (currentScroll > 50) {
                     header.style.backgroundColor = '#ffffff';
                     header.style.transition = 'background-color 0.8s ease-in-out';
-                    headerLinks.style.color = '#000000';
-                    headerLinks.style.transition = 'color 0.8s ease-in-out';
+                    headerLinks.forEach(link => link.style.color = '#000000');
+                    headerLinks.forEach(link => link.style.transition = 'color 0.8s ease-in-out');
                     headerLightLogo.style.display = 'none';
                     headerDarkLogo.style.display = 'block';
                     animationUnderlines.forEach(span => span.style.backgroundColor = '#000000');
@@ -117,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     headerMenuIconBorder.style.borderColor = '#000000';
                 } else {
                     header.style.backgroundColor = 'transparent';
-                    headerLinks.style.color = '#ffffff';
+                    headerLinks.forEach(link => link.style.color = '#ffffff');
                     headerDarkLogo.style.display = 'none';
                     headerLightLogo.style.display = 'block';
                     animationUnderlines.forEach(span => span.style.backgroundColor = '#ffffff');
@@ -158,9 +174,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (currentScroll > 1500) {
                     overlappingCard1Title.style.transform = 'translateY(0)';
-                    overlappingCard1Title.style.opacity = '1';   
+                    overlappingCard1Title.style.opacity = '1';
                 }
-                if(currentScroll > 1500){
+                if (currentScroll > 1500) {
                     overlappingCard1Desc.forEach((text, idx) => {
                         setTimeout(() => {
                             text.style.transform = 'translateY(0)';
@@ -172,10 +188,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (currentScroll > 2500) {
                     overlappingCard2Title.style.transform = 'translateY(0)';
-                    overlappingCard2Title.style.opacity = '1';   
+                    overlappingCard2Title.style.opacity = '1';
                 }
 
-                if(currentScroll > 2600){
+                if (currentScroll > 2600) {
                     overlappingCard2Desc.forEach((text, idx) => {
                         setTimeout(() => {
                             text.style.transform = 'translateY(0)';
@@ -187,10 +203,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
                 if (currentScroll > 2900) {
                     overlappingCard3Title.style.transform = 'translateY(0)';
-                    overlappingCard3Title.style.opacity = '1';   
+                    overlappingCard3Title.style.opacity = '1';
                 }
 
-                if(currentScroll > 3200){
+                if (currentScroll > 3200) {
                     overlappingCard3Desc.forEach((text, idx) => {
                         setTimeout(() => {
                             text.style.transform = 'translateY(0)';
@@ -211,10 +227,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     mainHeader.style.transform = 'translateY(0)';
                 }
 
-                if(!isMobile() && currentScroll > maxScroll - footerHeight){
+                if (!isMobile() && currentScroll > maxScroll - footerHeight) {
                     const translateY = currentScroll - (maxScroll - footerHeight);
                     wrapper.style.transform = `translateY(-${translateY}px)`;
-                }else{
+                } else {
                     wrapper.style.transform = `translateY(0)`;
                 }
 
@@ -224,7 +240,7 @@ document.addEventListener('DOMContentLoaded', function () {
             ticking = true;
         }
     });
-    window.addEventListener('resize', function() {
+    window.addEventListener('resize', function () {
         if (isMobile()) {
             footer.style.position = 'static';
             wrapper.style.transition = 'none';
@@ -238,4 +254,57 @@ document.addEventListener('DOMContentLoaded', function () {
             wrapper.style.transition = 'transform 0.8s ease-in-out';
         }
     });
+
+
+    // // Create overlay if it doesn't exist
+    // if (!document.querySelector('.page-transition-overlay')) {
+    //     const overlay = document.createElement('div');
+    //     overlay.className = 'page-transition-overlay';
+    //     document.body.appendChild(overlay);
+    // }
+
+    // // Get the overlay
+    // const overlay = document.querySelector('.page-transition-overlay');
+
+    // // Detect if coming from a transition
+    // if (sessionStorage.getItem('pageTransition') === 'true') {
+    //     overlay.classList.add('active'); // Keep screen covered immediately on load
+    //     document.body.classList.add('transitioning');
+
+    //     setTimeout(() => {
+    //         overlay.classList.add('reveal'); // Reveal the page smoothly
+    //         setTimeout(() => {
+    //             overlay.classList.remove('active', 'reveal');
+    //             document.body.classList.remove('transitioning');
+    //             sessionStorage.removeItem('pageTransition'); // Reset transition state
+    //         }, 800);
+    //     }, 50); // Tiny delay to ensure smooth transition
+    // }
+
+    // // Get all internal links
+    // const links = document.querySelectorAll('a[href]');
+
+    // links.forEach(link => {
+    //     link.addEventListener('click', function (e) {
+    //         const href = this.getAttribute('href');
+    //         const currentUrl = window.location.pathname + window.location.search;
+
+    //         // Ignore external links and same-page links
+    //         if (href !== '#' && !href.startsWith('http') && href !== currentUrl) {
+    //             e.preventDefault();
+    //             const target = this.href;
+
+    //             document.body.classList.add('transitioning');
+    //             overlay.classList.add('active'); // Cover the screen
+
+    //             setTimeout(() => {
+    //                 sessionStorage.setItem('pageTransition', 'true'); // Save state
+    //                 window.location.href = target; // Navigate
+    //             }, 800); // Matches the CSS transition
+    //         }
+    //     });
+    // });
+
+
+
 });

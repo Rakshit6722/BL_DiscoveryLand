@@ -116,6 +116,10 @@ body {
 .disc-gall-header-nav-links div:hover span {
     width: 100%;
 }
+.disc-gall-header-nav-links a{
+    color: white;
+    text-decoration: none;
+}
 
 /* .disc-gall-main-gallery-photo {
     position: relative;
@@ -196,7 +200,7 @@ body {
     color: #fff;
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 1.5s ease-out, transform 1.5s ease-out;
+    transition: opacity .5s ease-out, transform .5s ease-out;
 }
 
 .disc-gall-main-gallery-text p.animate {

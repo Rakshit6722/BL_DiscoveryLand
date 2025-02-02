@@ -4,12 +4,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const galleryText = document.querySelector('.disc-gall-main-gallery-text p')
     setTimeout(() => {
         galleryText.classList.add('animate');
-    },1000 )
+    },500 )
 
     // Header elements
     const mainHeader = document.querySelector('.disc-gall-header');
     const header = document.querySelector('.disc-gall-header-nav');
-    const headerLinks = document.querySelector('.disc-gall-header-nav-links');
+    const headerLinks = document.querySelectorAll('.disc-gall-header-nav-links a');
     const headerDarkLogo = document.querySelector('.disc-gall-header-nav-dark-logo');
     const headerLightLogo = document.querySelector('.disc-gall-header-nav-white-logo');
     const animationUnderlines = document.querySelectorAll('.disc-gall-header-nav-span');
@@ -92,8 +92,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     headerMenuIconBorder.style.borderColor = '#000000'; 
                     header.style.backgroundColor = '#ffffff';
                     header.style.transition = 'background-color 0.8s ease-in-out';
-                    headerLinks.style.color = '#000000';
-                    headerLinks.style.transition = 'color 0.8s ease-in-out';
+                    headerLinks.forEach(link => link.style.color = '#000000');
+                    headerLinks.forEach(link => link.style.transition = 'color 0.8s ease-in-out');
                     headerLightLogo.style.display = 'none';
                     headerDarkLogo.style.display = 'block';
                     animationUnderlines.forEach(span => span.style.backgroundColor = '#000000');
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     headerMenuIcon.style.color = '#ffffff';
                     headerMenuIconBorder.style.borderColor = '#ffffff'; 
                     header.style.backgroundColor = 'transparent';
-                    headerLinks.style.color = '#ffffff';
+                    headerLinks.forEach(link => link.style.color = '#ffffff');
                     headerDarkLogo.style.display = 'none';
                     headerLightLogo.style.display = 'block';
                     animationUnderlines.forEach(span => span.style.backgroundColor = '#ffffff');

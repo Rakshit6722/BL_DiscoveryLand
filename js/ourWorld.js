@@ -185,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Header elements
     const mainHeader = document.querySelector('.disc-world-header');
     const header = document.querySelector('.disc-world-header-nav');
-    const headerLinks = document.querySelector('.disc-world-header-nav-links');
+    const headerLinks = document.querySelectorAll('.disc-world-header-nav-links a');
     const headerDarkLogo = document.querySelector('.disc-world-header-nav-dark-logo');
     const headerLightLogo = document.querySelector('.disc-world-header-nav-white-logo');
     const animationUnderlines = document.querySelectorAll('.disc-world-header-nav-span');
@@ -248,8 +248,8 @@ document.addEventListener("DOMContentLoaded", () => {
                 if (currentScroll > 50) {
                     header.style.backgroundColor = '#ffffff';
                     header.style.transition = 'background-color 0.8s ease-in-out';
-                    headerLinks.style.color = '#000000';
-                    headerLinks.style.transition = 'color 0.8s ease-in-out';
+                    headerLinks.forEach(link => link.style.color = '#000000');
+                    headerLinks.forEach(link => link.style.transition = 'color 0.8s ease-in-out');
                     headerLightLogo.style.display = 'none';
                     headerDarkLogo.style.display = 'block';
                     animationUnderlines.forEach(span => span.style.backgroundColor = '#000000');
@@ -257,7 +257,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     headerMenuIconBorder.style.borderColor = '#000000';
                 } else {
                     header.style.backgroundColor = 'transparent';
-                    headerLinks.style.color = '#ffffff';
+                    headerLinks.forEach(link => link.style.color = '#ffffff');
                     headerDarkLogo.style.display = 'none';
                     headerLightLogo.style.display = 'block';
                     animationUnderlines.forEach(span => span.style.backgroundColor = '#ffffff');
