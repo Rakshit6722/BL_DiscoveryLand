@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
     const footer = document.querySelector('footer');
+    const footerContainer = document.querySelector('.disc-exp-footer-container')
     const main = document.querySelector('main');
 
     const mainText1 = document.querySelectorAll('.disc-exp-main-text h2 div')
@@ -101,6 +102,8 @@ document.addEventListener('DOMContentLoaded', function () {
         footer.style.left = '0';
         footer.style.width = '100%';
         footer.style.zIndex = '1';
+        footerContainer.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+        footerContainer.style.transformOrigin = 'bottom center';
     }
 
     const wrapper = document.createElement('div')
@@ -112,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
     wrapper.appendChild(main);
 
     const footerHeight = footer.offsetHeight;
+    const visibleBuffer = 100;
 
     window.addEventListener("scroll", () => {
         if (!ticking) {
@@ -228,14 +232,23 @@ document.addEventListener('DOMContentLoaded', function () {
                 }
 
                 if (!isMobile() && currentScroll > maxScroll - footerHeight) {
-                    const translateY = currentScroll - (maxScroll - footerHeight);
-                    wrapper.style.transform = `translateY(-${translateY}px)`;
-                } else {
-                    wrapper.style.transform = `translateY(0)`;
-                }
+                    const maxTranslation = footerHeight + visibleBuffer;
+                    if (currentScroll > maxScroll - maxTranslation) {
+                        const remainingScroll = maxScroll - currentScroll;
+                        const translation = Math.min(maxTranslation - remainingScroll, maxTranslation);
+                        const progress = translation / maxTranslation;
+                        const scale = 0.85 + (0.15 * progress); // Adjusted scale range for snappier effect
 
+                        wrapper.style.transform = `translateY(-${translation}px)`;
+                        footerContainer.style.transform = `scale(${scale})`;
+                    } else {
+                        wrapper.style.transform = 'translateY(0)';
+                        footerContainer.style.transform = 'scale(0.85)';
+                    }
+                }
                 lastScrollPosition = currentScroll;
                 ticking = false;
+                
             });
             ticking = true;
         }
@@ -243,11 +256,14 @@ document.addEventListener('DOMContentLoaded', function () {
     window.addEventListener('resize', function () {
         if (isMobile()) {
             footer.style.position = 'static';
+            footerContainer.style.transform = 'none';
             wrapper.style.transition = 'none';
             wrapper.style.transform = 'translateY(0)';
         } else {
             footer.style.position = 'fixed';
             footer.style.bottom = '0';
+            footerContainer.style.transition = 'transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1)';
+            footerContainer.style.transformOrigin = 'bottom center';
             footer.style.left = '0';
             footer.style.width = '100%';
             footer.style.zIndex = '1';

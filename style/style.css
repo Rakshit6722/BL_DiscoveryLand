@@ -1,0 +1,1175 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body {
+    /* height: 100%; */
+    margin: 0;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    overflow-x: hidden;
+    font-family: "MessinaSansWeb", sans-serif;
+    background-color: black;
+    /* z-index: -5; */
+}
+
+main {
+    min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    /* z-index: 2; */
+    background-color: white;
+}
+
+@font-face {
+    font-family: "GT Sectra Display Regular";
+    src: url("https://db.onlinewebfonts.com/t/ed147ffc0c22f110b20a665b27adfc1b.eot");
+    src: url("https://db.onlinewebfonts.com/t/ed147ffc0c22f110b20a665b27adfc1b.eot?#iefix") format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/ed147ffc0c22f110b20a665b27adfc1b.woff2") format("woff2"),
+        url("https://db.onlinewebfonts.com/t/ed147ffc0c22f110b20a665b27adfc1b.woff") format("woff"),
+        url("https://db.onlinewebfonts.com/t/ed147ffc0c22f110b20a665b27adfc1b.ttf") format("truetype"),
+        url("https://db.onlinewebfonts.com/t/ed147ffc0c22f110b20a665b27adfc1b.svg#GT Sectra Display Regular") format("svg");
+}
+
+@font-face {
+    font-family: "MessinaSansWeb";
+    src: url("https://db.onlinewebfonts.com/t/c0622b61ddd8c0f0c968784eb3439516.eot");
+    src: url("https://db.onlinewebfonts.com/t/c0622b61ddd8c0f0c968784eb3439516.eot?#iefix") format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/c0622b61ddd8c0f0c968784eb3439516.woff2") format("woff2"),
+        url("https://db.onlinewebfonts.com/t/c0622b61ddd8c0f0c968784eb3439516.woff") format("woff"),
+        url("https://db.onlinewebfonts.com/t/c0622b61ddd8c0f0c968784eb3439516.ttf") format("truetype"),
+        url("https://db.onlinewebfonts.com/t/c0622b61ddd8c0f0c968784eb3439516.svg#MessinaSansWeb") format("svg");
+}
+
+@font-face {
+    font-family: "GT Sectra Display Light";
+    src: url("https://db.onlinewebfonts.com/t/66d66b2194f4e2510a65d72509b6673f.eot");
+    src: url("https://db.onlinewebfonts.com/t/66d66b2194f4e2510a65d72509b6673f.eot?#iefix")format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/66d66b2194f4e2510a65d72509b6673f.woff2")format("woff2"),
+        url("https://db.onlinewebfonts.com/t/66d66b2194f4e2510a65d72509b6673f.woff")format("woff"),
+        url("https://db.onlinewebfonts.com/t/66d66b2194f4e2510a65d72509b6673f.ttf")format("truetype"),
+        url("https://db.onlinewebfonts.com/t/66d66b2194f4e2510a65d72509b6673f.svg#GT Sectra Display Light")format("svg");
+}
+
+@font-face {
+    font-family: "GT Sectra Fine Book Italic";
+    src: url("https://db.onlinewebfonts.co   m/t/0de445f94f2abb57b287babe57b31679.eot");
+    src: url("https://db.onlinewebfonts.com/t/0de445f94f2abb57b287babe57b31679.eot?#iefix")format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/0de445f94f2abb57b287babe57b31679.woff2")format("woff2"),
+        url("https://db.onlinewebfonts.com/t/0de445f94f2abb57b287babe57b31679.woff")format("woff"),
+        url("https://db.onlinewebfonts.com/t/0de445f94f2abb57b287babe57b31679.ttf")format("truetype"),
+        url("https://db.onlinewebfonts.com/t/0de445f94f2abb57b287babe57b31679.svg#GT Sectra Fine Book Italic")format("svg");
+}
+
+.disc-about-header {
+    width: 100%;
+    z-index: 100;
+    position: fixed;
+    top: 0;
+
+}
+
+.disc-about-header-nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 3rem !important;
+    background: transparent;
+    /* transition: all 0.3s ease-in-out; */
+}
+
+.disc-about-header-nav-links {
+    font-size: 1.1rem;
+    font-weight: 500;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+    color: #fff;
+    transition: color 0.3s ease-in-out;
+    /* width: 70%; */
+}
+
+.disc-about-header-nav-menu-option {
+    font-size: 10rem;
+    color: white;
+    /* border: 1px solid white; */
+    padding: 10px 20px !important;
+    margin-left: 3rem !important;
+}
+
+.disc-about-header-nav-links div {
+    position: relative;
+    display: inline-block;
+    padding: 5px 5px;
+    cursor: pointer;
+}
+
+.disc-about-header-nav-span {
+    position: absolute;
+    display: block;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease-in-out;
+}
+
+.disc-gall-header-nav-menu-option {
+    border: 1px solid white;
+    margin-left: 3rem;
+}
+
+.disc-gall-header-nav-menu-option p {
+    font-size: 2rem;
+    color: white;
+    padding: 0rem .75rem;
+}
+
+.disc-about-header-nav-links div:hover span {
+    width: 100%;
+}
+
+.disc-about-header-nav-links>a {
+    color: white;
+    text-decoration: none;
+}
+
+.disc-about-main-container {
+    position: relative;
+}
+
+.disc-about-main-container-image-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.disc-about-main-container-image-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(40, 79, 94, 0.3);
+    z-index: 1;
+}
+
+.disc-about-main-container-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+}
+
+.disc-about-main-text-container {
+    position: absolute;
+    top: 30%;
+    left: 33%;
+    /* transform: translate(-50%, -50%); */
+    color: white;
+    text-align: center;
+    z-index: 2;
+}
+
+.disc-about-main-text-container p:first-of-type {
+    transform: translateY(45px);
+    font-size: 5.5rem;
+    font-weight: 200;
+    margin-bottom: 1rem;
+    font-family: "GT Sectra Fine Book Italic";
+    letter-spacing: -.05rem;
+}
+
+.disc-about-main-text-container p:last-of-type {
+    /* transform: translateY(-20px); */
+    font-size: 6rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    font-family: "MessinaSansWeb";
+}
+
+.disc-about-main-text-container-2 {
+    position: absolute;
+    top: 550px;
+    z-index: 5;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 4rem;
+}
+
+.disc-about-main-text-container-2>div>p {
+    color: white;
+    font-size: 1rem;
+}
+
+.disc-about-main-text-container-2-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    height: 30px;
+    width: 30px;
+    padding: 1.25rem;
+    border-radius: 50%;
+    background-color: white;
+
+}
+
+.disc-about-main-text {
+    width: 100%;
+    text-align: center;
+    padding: 7.5rem 5rem 0 5rem;
+    background-color: white;
+}
+
+.disc-about-main-text h2 div{
+    font-size: 2.9rem;
+    letter-spacing: -.05em;
+    font-weight: 300;
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 1s ease-in-out;
+}
+
+.disc-about-main-text h2 div em {
+    font-family: "GT Sectra Fine Book Italic";
+    font-weight: 0;
+}
+
+.disc-about-separator {
+    width: 30%;
+    height: 1px;
+    background-color: #999;
+    margin: 6rem auto;
+    opacity: 0.5;
+}
+
+.disc-about-main-sub-container {
+    display: flex;
+    flex-direction: column;
+    /* margin-top: 8rem; */
+    /* gap: -4rem; */
+}
+
+.disc-about-main-sub-container-card {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 3rem;
+    padding-bottom: 4rem;
+    margin-top: 3rem;
+    background-color: white;
+
+}
+
+
+.disc-about-main-sub-container-card-text {
+    width: 50%;
+    padding-left: 8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.disc-about-main-sub-container-card-img {
+    width: 50%;
+}
+
+.disc-about-main-sub-container-card-img img {
+    width: 60%;
+    min-width: 550px;
+    height: 100%;
+    max-height: 560px;
+    object-fit: cover;
+}
+
+.disc-about-main-sub-container-card-text>h2>div {
+    font-weight: 200;
+    font-size: 1.9rem;
+    letter-spacing: -.05rem;
+}
+
+.disc-about-main-sub-container-card-text>div>div {
+    color: rgb(158, 158, 158);
+    font-size: 1.2rem;
+    font-weight: 100;
+}
+
+.disc-about-main-sub-container {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+
+.disc-about-sub-container-carousel-heading {
+    font-size: 2rem;
+    font-family: "GT Sectra Display Light";
+    padding: 2rem 6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50%;
+    margin-top: 3rem;
+}
+
+.disc-about-main-sub-container-mid-image {
+    width: 100%;
+    max-height: 700px;
+    margin-top: 3rem;
+    overflow: hidden;
+}
+
+.disc-about-main-sub-container-mid-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.disc-about-sub-container-carousel {
+    width: 100%;
+    padding: 4rem 3rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.disc-about-sub-container-carousel-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    gap: 4rem;
+}
+
+.disc-about-sub-container-carousel-heading>div:first-child {
+    font-size: 2.2rem;
+    font-family: "GT Sectra Display Light";
+    white-space: nowrap;
+}
+
+.disc-about-carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.disc-about-sub-container-carousel-content {
+    max-width: 800px;
+    width: 100%;
+}
+
+.glide {
+    width: 100%;
+}
+
+.glide__slide img {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.glide__arrows {
+    display: flex;
+    justify-content: space-between;
+}
+
+.glide__arrow {
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.carousel-slide img {
+    object-fit: cover;
+}
+
+.carousel-slide span {
+    font-size: 1.2rem;
+    font-weight: 100;
+    color: rgb(168, 168, 168);
+    font-family: "MessinaSansWeb";
+}
+
+
+.disc-about-main-sub-container-video-card {
+    background-color: black;
+    padding-bottom: 5rem;
+}
+
+.disc-about-main-sub-container-video-card-desc {
+    display: flex;
+    width: 100%;
+    align-items: start;
+    justify-content: space-between;
+    background-color: black;
+    padding: 4rem 8rem;
+    margin-top: 5rem;
+}
+
+.disc-about-main-sub-container-video-card-desc-heading {
+    width: 50%;
+    font-family: "GT Sectra Display Light";
+    color: white;
+    font-size: 2.8rem;
+}
+
+.disc-about-main-sub-container-video-card-desc-info {
+    width: 50%;
+    color: white;
+    padding: 0 4rem;
+}
+
+.disc-about-main-sub-container-video-card-desc-info p {
+    font-size: 1.2rem;
+    font-weight: 400;
+    /* color: rgb(158, 158, 158); */
+    padding: 0 1rem;
+}
+
+.disc-about-main-sub-container-video-card-desc-info button {
+    padding: 1rem 3.25rem;
+    background-color: black;
+    color: white;
+    border: rgb(109, 109, 109) 1px solid;
+    font-size: .9rem;
+    font-weight: 300;
+    cursor: pointer;
+    margin: 2rem 1rem;
+}
+
+.disc-about-main-sub-container-video-card-video {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* padding-bottom: 4rem; */
+}
+
+.disc-about-main-sub-container-video-card-video video {
+    width: 80%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.disc-about-main-sub-container-mid-image2 {
+    /* height: 60%; */
+    width: 70%;
+    /* margin-top: 3rem; */
+}
+
+.disc-about-main-sub-container-mid-image2 img {
+    width: 100vw;
+    height: 100%;
+    max-height: 700px;
+    object-fit: cover;
+}
+
+.disc-about-main-sub-container-discovery {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    text-align: start;
+    padding: 5rem;
+}
+
+.disc-about-sub-continer-discovery-1 {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    gap: 8rem;
+    align-items: center;
+}
+
+.disc-about-sub-container-discover-1-card {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding-left: 3rem;
+}
+
+.disc-about-sub-container-discover-1-card>h2 {
+    font-size: 1.8rem;
+    font-weight: 100;
+    font-family: "MessinaSansWeb";
+    color: black;
+}
+
+
+.disc-about-main-sub-container-last-image-container {
+    width: 100vw;
+    height: 500px;
+}
+
+.disc-about-main-sub-container-last-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.disc-about-sub-container-discover-1-card-text div {
+    font-size: 1.2rem;
+    font-weight: 100;
+    color: rgb(157, 155, 155);
+    font-family: "MessinaSansWeb";
+    width: 100%;
+    /* padding-right: 5rem; */
+}
+
+.disc-about-sub-container-discover-1-card-image img {
+    width: 100%;
+    height: 100%;
+    max-height: 300px;
+    object-fit: cover;
+}
+
+.disc-about-sub-container-discover-1-card-button>button {
+    padding: 1rem 3rem;
+    background-color: white;
+    border: 1px solid rgb(55, 55, 55);
+    outline: none;
+    font-size: .9rem;
+}
+
+.disc-about-sub-continer-discovery-2 {
+    width: 50%;
+    /* padding: 0 3rem; */
+    text-align: center;
+}
+
+.disc-about-sub-continer-discovery-2 img {
+    width: 80%;
+    height: 100%;
+    max-height: 700px;
+    object-fit: cover;
+}
+
+.disc-about-main-sub-container-last-image-container {
+    position: relative;
+    width: 100%;
+    max-height: 850px;
+    overflow: hidden;
+}
+
+/* Base image styling */
+.disc-about-main-sub-container-last-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+/* Base image styling */
+.disc-about-main-sub-container-last-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Light overlay */
+.disc-about-main-sub-container-last-image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(201, 201, 201, 0.2);
+    /* Reduced opacity to 0.2 for lighter effect */
+    pointer-events: none;
+}
+
+
+
+/* Explore text with underline */
+.disc-about-main-sub-container-last-image-text div:nth-child(2) {
+    display: inline-block;
+    position: relative;
+    font-size: 1.2rem;
+    padding-bottom: 0.5rem;
+}
+
+
+.disc-about-main-sub-container-last-image-text {
+    position: absolute;
+    top: 48%;
+    left: 45%;
+    /* transform: translate(-50%, -50%); */
+    color: white;
+    text-align: center;
+    z-index: 2;
+}
+
+.disc-about-main-sub-container-last-image-text h2 {
+    font-size: 5rem;
+    letter-spacing: .4rem;
+    font-weight: 200;
+    margin-bottom: 1rem;
+    font-family: "MessinaSansWeb";
+    letter-spacing: -.05rem;
+}
+
+.disc-about-main-sub-container-last-image-text div {
+    font-weight: 100;
+    /* text-decoration: underline; */
+}
+
+
+/* Base image styling */
+.disc-about-main-sub-container-last-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+/* Dark overlay */
+.disc-about-main-sub-container-last-image-container::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    pointer-events: none;
+}
+
+/* Text container styling */
+.disc-about-main-sub-container-last-image-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 1;
+}
+
+
+
+
+.disc-about-main-sub-container-last-image-text div:nth-child(2) {
+    display: inline-block;
+    position: relative;
+    font-size: 1.2rem;
+    padding-bottom: 0.5rem;
+}
+
+/* Underline styling */
+.disc-about-main-sub-container-last-image-text div:nth-child(2)::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: white;
+}
+
+.disc-about-footer {
+    margin-top: 3rem;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    color: white;
+    /* height: vh; */
+}
+
+.disc-about-footer-container {
+    /* transform: translateY(-100%); */
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 10rem;
+    padding: 4rem;
+}
+
+.disc-about-footer-sub-container {
+    width: 33.33%;
+}
+
+.disc-about-footer-sub-container-links {
+    display: flex;
+}
+
+.disc-about-footer-sub-container-links div {
+    width: 50%;
+}
+
+.disc-about-footer-sub-container-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.disc-about-footer-sub-container-contact-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.disc-about-footer-sub-container-contact-text p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: rgb(198, 195, 195);
+}
+
+.disc-about-footer-sub-container-contact-text h3 {
+    font-weight: 400;
+}
+
+.disc-about-footer-sub-container-links-text {
+
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    font-size: 19.2px;
+}
+
+.disc-about-footer-sub-container-links-text h3 {
+    font-weight: 400;
+}
+
+.disc-about-footer-bottom {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2rem;
+}
+
+.disc-about-footer-bottom h3 {
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: rgb(176, 176, 176);
+}
+
+footer {
+    background-color: black;
+}
+
+@media (min-width:481px) and (max-width:768px) {
+    .disc-about-header-nav-links div {
+        font-size: .6rem;
+        padding: 0;
+    }
+
+    .disc-about-header-nav img {
+        width: 12%;
+        padding: 0;
+    }
+
+    .disc-about-header {
+        padding: 0;
+    }
+
+    .disc-about-header-nav {
+        padding: 1rem;
+    }
+
+    .disc-about-header-nav-menu-option {
+        margin-left: 1rem;
+    }
+
+    .disc-about-header-nav-menu-option p {
+        font-size: 1.5rem;
+    }
+
+    .disc-about-main-aboutery-text p{
+        font-size: 2rem !important;
+    }
+
+    .disc-about-footer-sub-container img {
+        width: 10%;
+    }
+
+    .disc-about-footer-sub-container-contact-text {
+        font-size: .7rem;
+    }
+
+    .disc-about-footer-sub-container-contact-text p {
+        font-size: .7rem;
+    }
+
+    .disc-about-footer-sub-container-links>div>p {
+        font-size: .7rem;
+    }
+
+    .disc-about-footer-bottom {
+        padding: 1rem;
+    }
+
+    .disc-about-footer-bottom h3 {
+        font-size: .8rem;
+    }
+
+    .disc-about-footer-container {
+        padding: 1rem;
+    }
+
+    footer {
+        position: relative;
+        z-index: -1;
+        background-color: black;
+    }
+
+    .disc-about-main-sub-container-video-card-desc{
+        padding: 1rem;
+    }
+    .disc-about-main-sub-container-video-card{
+        width: 100%;
+        /* text-align: center; */
+    }
+    .disc-about-main-sub-container-video-card-desc-info{
+        width: 100%;
+        padding: 0 2rem;
+    }
+
+    .disc-about-main-sub-container-video-card-desc{
+        width: 100%;
+    }
+
+    .disc-about-main-sub-container-video-card-desc-heading{
+        font-size: 1.5rem;
+        width: 100%;
+        margin-left: 6rem;
+    }
+    .disc-about-main-sub-container-video-card-desc-info p{
+        font-size: 1rem;
+    }
+    .disc-about-main-sub-container-video-card-desc-info button{
+        font-size: .5rem;
+        padding: 1rem 2rem;
+    }
+    .disc-about-main-sub-container-discovery {
+        display: flex;
+        width: 100%;
+        justify-content: space-between;
+        text-align: start;
+        padding: 5rem;
+        gap: 3rem;
+    }
+    .disc-about-sub-continer-discovery-2 {
+        width: 80%;
+        /* padding: 0 3rem; */
+        text-align: center;
+    }
+    .disc-about-sub-continer-discovery-2 img {
+        width: 80%;
+        height: 100%;
+        max-height: 642px;
+        object-fit: cover;
+    }
+    .disc-about-main-sub-container-last-image-text h2 {
+        font-size: 4rem;
+        letter-spacing: .4rem;
+        font-weight: 200;
+        margin-bottom: 1rem;
+        font-family: "MessinaSansWeb";
+        letter-spacing: -.05rem;
+    }
+    .disc-about-main-sub-container-last-image-text div:nth-child(2) {
+        font-size: .8rem;
+        display: inline-block;
+        position: relative;
+        font-size: .75rem;
+        padding-bottom: 0.5rem;
+    }
+    .disc-about-main-text-container p:first-of-type {
+        transform: translateY(45px);
+        font-size: 3rem;
+        font-weight: 200;
+        margin-bottom: 1rem;
+        font-family: "GT Sectra Fine Book Italic";
+        letter-spacing: -.05rem;
+    }
+    .disc-about-main-text-container p:last-of-type {
+        transform: translateY(12px);
+        font-size: 3.2rem;
+        font-weight: 400;
+        margin-bottom: 1rem;
+        font-family: "MessinaSansWeb";
+    }
+    .disc-about-header-nav {
+        padding:1rem !important;
+    }
+    .disc-about-main-text h2 div{
+        font-size: 2.9rem;
+        letter-spacing: -.05em;
+        font-weight: 300;
+        transform: translateY(50px);
+        opacity: 0;
+        transition: all 1s ease-in-out;
+    }
+    .disc-about-main-sub-container-card-text>h2>div {
+        font-weight: 200;
+        font-size: 1.3rem;
+        letter-spacing: -.05rem;
+    }
+    .disc-about-main-sub-container-card-text {
+        padding-left: 0;
+        padding: 1rem;
+    }
+    .disc-about-main-sub-container-card-text>div>div {
+        color: rgb(158, 158, 158);
+        font-size: .9rem;
+        font-weight: 100;
+    }
+    .disc-about-main-sub-container-card-img img {
+        width: 74%;
+        min-width: 300px;
+        height: 100%;
+        /* max-height: 560px; */
+        object-fit: cover;
+    }
+    .disc-about-main-sub-container-card {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 3.5rem;
+        padding-bottom: 4rem;
+        margin-top: 3rem;
+        background-color: white;
+    }
+
+    .disc-about-sub-container-carousel{
+        display: none;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    .disc-about-header-nav-links div:nth-child(1),
+    .disc-about-header-nav-links div:nth-child(2),
+    .disc-about-header-nav-links div:nth-child(3),
+    .disc-about-header-nav-links div:nth-child(4),
+    .disc-about-header-nav-links div:nth-child(5) {
+        display: none;
+    }
+
+    .disc-about-header-nav img {
+        width: 40%;
+    }
+
+    .disc-about-header{
+        width: 100%;
+    }
+    .disc-about-header-nav-links{
+        /* width: 100%; */
+    }
+    .disc-about-header-nav {
+        padding: 1rem !important;
+    }
+
+    .disc-gall-header-nav-menu-option {
+        padding: 0rem 1rem;
+        /* width: 100%; */
+
+    }
+
+    .disc-gall-header-nav-menu-option p {
+        /* font-size: 3rem; */
+    }
+
+
+    .disc-about-footer-sub-container-links>div>p {
+        font-size: 1rem;
+    }
+
+    .disc-about-footer-container {
+        padding: 1.5rem;
+        width: 100%;
+    }
+
+    .disc-about-footer-sub-container-contact {
+        margin-top: 3rem;
+    }
+
+    .disc-about-footer {
+        flex-direction: column;
+        gap: 4rem;
+        padding: 0;
+        font-size: .9rem;
+    }
+
+    .disc-about-footer-sub-container img {
+        width: 15%;
+    }
+
+    .disc-about-footer-sub-container-contact {
+        width: 100%;
+    }
+
+    .disc-about-footer-sub-container {
+        width: 100%;
+    }
+
+    .disc-about-footer-sub-container-contact-text-phone {
+        width: 100%;
+    }
+
+    .disc-about-footer-sub-container-contact-text-phone h3 {
+        font-size: 1rem;
+    }
+
+    .disc-about-footer-sub-container-links {
+        margin-top: 4rem;
+    }
+
+    .disc-about-footer-bottom {
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        padding: 1rem;
+        gap: 2rem;
+    }
+
+    .disc-about-footer-bottom h3 {
+        font-size: 1rem;
+        width: 90%;
+    }
+
+    footer {
+        position: relative;
+        z-index: -1;
+        background-color: black;
+    }
+
+    .disc-about-main-text-container{
+        top: 40%;
+        left: 14%;
+    }
+
+    .disc-about-main-text-container p:first-of-type {
+        font-size: 3rem;
+        transform: translateY(31px);
+    }
+    .disc-about-main-text-container p:last-of-type {
+        font-size: 3rem;
+    }
+    .disc-about-main-text-container-2{
+        display: none;
+    }
+    .disc-about-main-text > h2 div{
+        font-size: 2rem;
+    }
+    .disc-about-main-sub-container-card{
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+    .disc-about-main-sub-container-card-text{
+        width: 100%;
+        padding-left: 0;
+    }
+    .disc-about-main-sub-container-card-img{
+        text-align: center;
+        width: 100%;
+    }
+    .disc-about-main-sub-container-card-img img{
+        width: 100%;
+        height: 100%;
+        max-height: 400px;
+        min-width: unset;
+    }
+    .disc-about-sub-container-carousel-heading{
+        display: flex;
+        flex-direction: column;
+    }
+    .disc-about-sub-container-carousel {
+        display: none;
+    }
+
+    .disc-about-main-sub-container-video-card{
+        display: flex;
+        flex-direction: column;
+    }
+    .disc-about-main-sub-container-video-card-desc{
+        flex-direction: column;
+        gap: 2rem;
+        padding: 2rem;
+    }
+    .disc-about-main-sub-container-video-card-desc-heading{
+        width: 100%;
+        text-align: center;
+    }
+    .disc-about-main-sub-container-video-card-desc-info{
+        width: 100%;
+        padding: 0;
+    }
+    .disc-about-sub-container-discover-1-card-image{
+        display: none;
+    }
+    .disc-about-main-sub-container-discovery{
+        flex-direction: column-reverse;
+        gap: 3rem;
+    }
+    .disc-about-sub-continer-discovery-2{
+        width: 100%;
+        padding: 0;
+    }
+    .disc-about-sub-continer-discovery-2 img{
+        width: 100%;
+        height: 100%;
+        max-height: 400px;
+    }
+    .disc-about-sub-continer-discovery-2{
+        padding: 0rem;
+    }
+    .disc-about-main-sub-container-discovery{
+        padding: 1rem;
+        margin-top: 8rem;
+    }
+    .disc-about-sub-container-discover-1-card > h2{
+        width: 100%;
+    }
+    .disc-about-sub-container-discover-1-card-text{
+        padding: 0;
+    }
+    .disc-about-sub-container-discover-1-card-text div{
+        width: 100%;
+        /* padding: 0; */
+    }
+    .disc-about-sub-continer-discovery-1{
+        width: 100%;
+        /* text-align: center; */
+    }
+    .disc-about-sub-container-discover-1-card {
+        padding-left: 0;
+        padding: 2rem;
+    }
+
+}
+
+
+/* footer{
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: -2;
+} */

@@ -25,6 +25,16 @@ main {
 }
 
 @font-face {
+    font-family: "GT Sectra Display Regular";
+    src: url("https://db.onlinewebfonts.com/t/ed147ffc0c22f110b20a665b27adfc1b.eot");
+    src: url("https://db.onlinewebfonts.com/t/ed147ffc0c22f110b20a665b27adfc1b.eot?#iefix") format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/ed147ffc0c22f110b20a665b27adfc1b.woff2") format("woff2"),
+        url("https://db.onlinewebfonts.com/t/ed147ffc0c22f110b20a665b27adfc1b.woff") format("woff"),
+        url("https://db.onlinewebfonts.com/t/ed147ffc0c22f110b20a665b27adfc1b.ttf") format("truetype"),
+        url("https://db.onlinewebfonts.com/t/ed147ffc0c22f110b20a665b27adfc1b.svg#GT Sectra Display Regular") format("svg");
+}
+
+@font-face {
     font-family: "MessinaSansWeb";
     src: url("https://db.onlinewebfonts.com/t/c0622b61ddd8c0f0c968784eb3439516.eot");
     src: url("https://db.onlinewebfonts.com/t/c0622b61ddd8c0f0c968784eb3439516.eot?#iefix") format("embedded-opentype"),
@@ -32,6 +42,26 @@ main {
         url("https://db.onlinewebfonts.com/t/c0622b61ddd8c0f0c968784eb3439516.woff") format("woff"),
         url("https://db.onlinewebfonts.com/t/c0622b61ddd8c0f0c968784eb3439516.ttf") format("truetype"),
         url("https://db.onlinewebfonts.com/t/c0622b61ddd8c0f0c968784eb3439516.svg#MessinaSansWeb") format("svg");
+}
+
+@font-face {
+    font-family: "GT Sectra Display Light";
+    src: url("https://db.onlinewebfonts.com/t/66d66b2194f4e2510a65d72509b6673f.eot");
+    src: url("https://db.onlinewebfonts.com/t/66d66b2194f4e2510a65d72509b6673f.eot?#iefix")format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/66d66b2194f4e2510a65d72509b6673f.woff2")format("woff2"),
+        url("https://db.onlinewebfonts.com/t/66d66b2194f4e2510a65d72509b6673f.woff")format("woff"),
+        url("https://db.onlinewebfonts.com/t/66d66b2194f4e2510a65d72509b6673f.ttf")format("truetype"),
+        url("https://db.onlinewebfonts.com/t/66d66b2194f4e2510a65d72509b6673f.svg#GT Sectra Display Light")format("svg");
+}
+
+@font-face {
+    font-family: "GT Sectra Fine Book Italic";
+    src: url("https://db.onlinewebfonts.co   m/t/0de445f94f2abb57b287babe57b31679.eot");
+    src: url("https://db.onlinewebfonts.com/t/0de445f94f2abb57b287babe57b31679.eot?#iefix")format("embedded-opentype"),
+        url("https://db.onlinewebfonts.com/t/0de445f94f2abb57b287babe57b31679.woff2")format("woff2"),
+        url("https://db.onlinewebfonts.com/t/0de445f94f2abb57b287babe57b31679.woff")format("woff"),
+        url("https://db.onlinewebfonts.com/t/0de445f94f2abb57b287babe57b31679.ttf")format("truetype"),
+        url("https://db.onlinewebfonts.com/t/0de445f94f2abb57b287babe57b31679.svg#GT Sectra Fine Book Italic")format("svg");
 }
 
 .disc-world-header {
@@ -329,19 +359,27 @@ footer {
         width: 40%;
     }
 
+    .disc-world-header{
+        width: 100%;
+    }
+    .disc-world-header-nav-links{
+        /* width: 100%; */
+    }
     .disc-world-header-nav {
-        padding: 1rem;
+        padding: 1rem !important;
     }
 
     .disc-gall-header-nav-menu-option {
-        padding: 0rem 0rem;
-        width: 100%;
+        padding: 0rem 1rem;
+        /* width: 100%; */
 
     }
 
     .disc-gall-header-nav-menu-option p {
         /* font-size: 3rem; */
     }
+
+
 
     .disc-world-main-container {
         text-align: center;

@@ -4,7 +4,6 @@
     box-sizing: border-box;
 }
 
-
 html,
 body {
     /* height: 100%; */
@@ -12,8 +11,17 @@ body {
     width: 100%;
     overflow-x: hidden;
     font-family: "MessinaSansWeb", sans-serif;
-    background-color: black;
+    background-color: rgb(16, 16, 16);
     z-index: -5;
+}
+
+main {
+    min-height: calc(100vh - 100px);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 2;
+    background-color: rgb(16, 16, 16);
 }
 
 @font-face {
@@ -82,12 +90,21 @@ body {
     gap: 1rem;
     color: #fff;
     transition: color 0.3s ease-in-out;
+    /* width: 70%; */
+}
+
+.disc-gall-header-nav-menu-option {
+    font-size: 10rem;
+    color: white;
+    /* border: 1px solid white; */
+    padding: 10px 20px;
+    margin-left: 3rem;
 }
 
 .disc-gall-header-nav-links div {
     position: relative;
     display: inline-block;
-    padding: 5px 10px;
+    padding: 5px 5px;
     cursor: pointer;
 }
 
@@ -102,23 +119,23 @@ body {
     transition: width 0.3s ease-in-out;
 }
 
-.disc-gall-header-nav-menu-option{
-    border: 1px solid white;
-    margin-left: 3rem;
+.disc-gall-header-nav-links a {
+    text-decoration: none;
+    color: white;
 }
 
-.disc-gall-header-nav-menu-option p{
-   font-size: 2rem;
+.disc-gall-header-nav-menu-option {
+    border: 1px solid white
+}
+
+.disc-gall-header-nav-menu-option p {
+    font-size: 2rem;
     color: white;
     padding: 0rem .75rem;
 }
 
 .disc-gall-header-nav-links div:hover span {
     width: 100%;
-}
-.disc-gall-header-nav-links a{
-    color: white;
-    text-decoration: none;
 }
 
 /* .disc-gall-main-gallery-photo {
@@ -135,7 +152,7 @@ body {
     height: 100%;
     object-fit: cover;
 } */
- 
+
 
 
 .gallery-container {
@@ -283,7 +300,7 @@ body {
     padding: 4rem;
 }
 
-.disc-gall-footer-sub-container{
+.disc-gall-footer-sub-container {
     width: 33.33%;
 }
 
@@ -343,7 +360,7 @@ body {
     color: rgb(176, 176, 176);
 }
 
-footer{
+footer {
     position: relative;
     bottom: 100px;
     z-index: -1;
@@ -351,42 +368,52 @@ footer{
 }
 
 @media (min-width:481px) and (max-width:768px) {
-    .disc-gall-header-nav-links div{
+    .disc-gall-header-nav-links div {
         font-size: .6rem;
         padding: 0;
     }
-    .disc-gall-header-nav{
+
+    .disc-gall-header-nav {
         padding: 1rem;
     }
-    .disc-gall-header-nav img{
+
+    .disc-gall-header-nav img {
         width: 12%;
         padding: 0;
     }
-    .disc-gall-header{
-        padding:0;
+
+    .disc-gall-header {
+        padding: 0;
     }
-   
-    .disc-gall-footer-sub-container img{
+
+    .disc-gall-footer-sub-container img {
         width: 10%;
     }
-    .disc-gall-footer-sub-container-contact-text{
+
+    .disc-gall-footer-sub-container-contact-text {
         font-size: .7rem;
     }
-    .disc-gall-footer-sub-container-contact-text p{
+
+    .disc-gall-footer-sub-container-contact-text p {
         font-size: .7rem;
     }
-    .disc-gall-footer-sub-container-links >div>p{
+
+    .disc-gall-footer-sub-container-links>div>p {
         font-size: .7rem;
     }
-    .disc-gall-footer-bottom{
+
+    .disc-gall-footer-bottom {
         padding: 1rem;
     }
-    .disc-gall-footer-bottom h3{
+
+    .disc-gall-footer-bottom h3 {
         font-size: .8rem;
     }
-    .disc-gall-footer-container{
+
+    .disc-gall-footer-container {
         padding: 1rem;
     }
+
     footer {
         position: relative;
         z-index: -1;
@@ -405,82 +432,104 @@ footer{
         display: none;
     }
 
-    .disc-gall-header-nav img{
+    .disc-gall-header-nav img {
         width: 40%;
     }
 
-    .disc-gall-header-nav{
-        padding: 1rem;
-    }
-
-    .disc-gall-header-nav-menu-option{
-        padding: 0rem 0rem;
+    .disc-gall-header {
         width: 100%;
+    }
+
+    .disc-gall-header-nav-links {
+        /* width: 100%; */
+    }
+
+    .disc-gall-header-nav {
+        padding: 1rem !important;
+    }
+
+    .disc-gall-header-nav-menu-option {
+        padding: 0rem 1rem;
+        /* width: 100%; */
 
     }
-    .disc-gall-header-nav-menu-option p{
+
+    .disc-gall-header-nav-menu-option p {
         /* font-size: 3rem; */
     }
-    .disc-gall-main-gallery-text p{
+
+
+    .disc-gall-main-gallery-text p {
         font-size: 3rem;
     }
-    .disc-gall-main-gallery-photo{
+
+    .disc-gall-main-gallery-photo {
         height: 75vh;
     }
 
-    .disc-gall-gallery-categories-container1{
+    .disc-gall-gallery-categories-container1 {
         width: 100%;
         display: flex;
         flex-direction: column;
     }
 
-    .disc-gall-gallery-categories-sub-container1{
-        width: 100% !important;    
+    .disc-gall-gallery-categories-sub-container1 {
+        width: 100% !important;
     }
-    
-    .disc-gall-footer-container{
+
+    .disc-gall-footer-container {
         padding: 1.5rem;
         width: 100%;
     }
-    .disc-gall-footer-sub-container-contact{
+
+    .disc-gall-footer-sub-container-contact {
         margin-top: 3rem;
     }
-    .disc-gall-footer{
+
+    .disc-gall-footer {
         flex-direction: column;
         gap: 4rem;
         padding: 0;
         font-size: .9rem;
     }
-    .disc-gall-footer-sub-container img{
+
+    .disc-gall-footer-sub-container img {
         width: 15%;
     }
-    .disc-gall-footer-sub-container-contact{
+
+    .disc-gall-footer-sub-container-contact {
         width: 100%;
     }
-    .disc-gall-footer-sub-container{
+
+    .disc-gall-footer-sub-container {
         width: 100%;
     }
+
     .disc-gall-footer-sub-container-contact-text-phone {
         width: 100%;
     }
-    .disc-gall-footer-sub-container-contact-text-phone h3{
+
+    .disc-gall-footer-sub-container-contact-text-phone h3 {
         font-size: 1rem;
     }
-    .disc-gall-footer-sub-container-links{
+
+    .disc-gall-footer-sub-container-links {
         margin-top: 4rem;
     }
 
-    .disc-gall-footer-bottom{
+    .disc-gall-footer-bottom {
         flex-direction: column;
         justify-content: start;
         align-items: start;
         padding: 1rem;
         gap: 2rem;
     }
-    .disc-gall-footer-bottom h3{
+
+    .disc-gall-footer-bottom h3 {
         font-size: 1rem;
         width: 90%;
     }
+
     footer {
         position: relative;
         bottom: 0;
@@ -488,4 +537,3 @@ footer{
         background-color: black;
     }
 }
-

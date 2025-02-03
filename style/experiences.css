@@ -623,15 +623,27 @@ footer{
         width: 40%;
     }
 
-    .disc-exp-header-nav {
-        padding: 1rem;
-    }
-
-    .disc-exp-header-nav-menu-option {
-        padding: 0rem 0rem;
+    .disc-exp-header{
         width: 100%;
+    }
+    .disc-exp-header-nav-links{
+        /* width: 100%; */
+    }
+    .disc-exp-header-nav {
+        padding: 1rem !important;
+    }
+
+    .disc-gall-header-nav-menu-option {
+        padding: 0rem 1rem;
+        /* width: 100%; */
 
     }
+
+    .disc-gall-header-nav-menu-option p {
+        /* font-size: 3rem; */
+    }
+
+
 
     .disc-exp-footer-sub-container-links>div>p {
         font-size: 1rem;
